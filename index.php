@@ -4,7 +4,7 @@
  require_once "include/main.php";
  ?>
 
-<p>The index file</p>
+<p>hase your Dreams and fulfill that promise you make to see yourself</p>
 
 <?php
  require_once "include/footer.php";
