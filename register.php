@@ -6,15 +6,15 @@
 
 <h1 class="text-center pt-2"> Register Form </h1>
 <div class="container ">
-<form class="bg-info p-5 shadow m-5 mt-3 pb-5 rounded">
+<form class="bg-info p-5 shadow m-5 mt-3 pb-5 rounded" action="include/register_inc.php" method="POST">
   <div class="mb-3">
     <label for="yourname" class="form-label">Name</label>
-    <input type="text" name="name" class="form-control" id="yourname">
+    <input type="text" name="username" class="form-control" id="yourname">
   </div>
-  <div class="mb-3">
+  <!-- <div class="mb-3">
     <label for="class" class="form-label">Class</label>
     <input type="text" name="class" class="form-control" id="class" >
-  </div>
+  </div> -->
   <div class="mb-3">
     <label for="phone" class="form-label">Mobile Number</label>
     <input type="text" name="mob-num" class="form-control" id="phone" >
@@ -28,12 +28,16 @@
     <label for="exampleInputPassword1" class="form-label">Password</label>
     <input type="password" name="password" class="form-control" id="exampleInputPassword1">
   </div>
+  <div class="mb-3">
+    <label for="confirmpass" class="form-label">Confirm Password</label>
+    <input type="password" name="confirmpassword" class="form-control" id="confirmpass">
+  </div>
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
   <div class="pb-4">
-      <button type="submit" class="btn btn-primary px-5 fs-5 float-end ">Submit</button>
+      <button type="submit" name="submit" class="btn btn-primary px-5 fs-5 float-end ">Submit</button>
   </div>
 </form>
 </div>
