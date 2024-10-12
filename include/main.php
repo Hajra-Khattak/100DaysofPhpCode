@@ -17,6 +17,9 @@
           <a class="nav-link text-light" aria-current="page" href="register.php">Registration</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link text-light" aria-current="page" href="userinfo.php">ALL Users</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link text-light" aria-current="page" href="profile.php">Profile</a>
         </li>
       </ul>
