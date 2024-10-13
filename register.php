@@ -2,6 +2,12 @@
  require_once "include/header.php";
 
  require_once "include/main.php";
+
+//  if($_SERVER['REQUEST_METHOD'] == "POST"){
+//   echo $_POST['username'];
+//   echo $_POST['password'];
+// }
+
  ?>
 
 <h1 class="text-center pt-2"> Register Form </h1>
