@@ -10,10 +10,10 @@
 
 <div class="container">
 <h1 class="text-center pt-2"> USERS INFORMATIONS </h1>
-    <div class="table-responsive bg-dark shadow mt-5 border border-warning">
+    <div class="table-responsive bg-dark shadow mt-5 ">
         <table
-            class="table shadow table-primary table-center table-border">
-            <thead class="table-dark">
+            class="table shadow table-primary table-center table-border ">
+            <thead class=" table-dark" style="font-size:large;">
                 <tr>
                     <th scope="col">id</th>
                     <th scope="col">Name</th>

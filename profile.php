@@ -2,8 +2,11 @@
  require_once "include/header.php";
 
  require_once "include/main.php";
- ?>
 
+
+if(isset($_SESSION['sessionId'])){
+
+?>
 
 <div class="container mt-5">
     
@@ -19,8 +22,12 @@
                 
                 <div class="text-center mt-3">
                     <span class="bg-warning p-1 px-4 rounded ">Pro</span>
-                    <h5 class="mt-2 mb-0">Alexender Schidmt</h5>
-                    <span>UI/UX Designer</span>
+                    <h5 class="mt-2 mb-0">
+                    <?php echo  $_SESSION['sessionUser'] ?>
+                    </h5>
+                    <span>
+                    <?php echo  $_SESSION['sessionemail'] ?>
+                    </span>
                     
                     <div class="px-4 mt-1">
                         <p class="fonts">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
@@ -56,6 +63,11 @@
 </div>
 
 <?php
+
+}else{
+    echo " <strong> Home  </strong>";
+}
+
  require_once "include/footer.php";
 
 ?>

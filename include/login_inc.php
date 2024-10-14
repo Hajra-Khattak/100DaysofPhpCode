@@ -1,19 +1,27 @@
 <?php
 
 
+// if (isset($_POST['submit'])){
+//     echo "yes worked";
+// }
+// else{
+//     echo "not working";
+// }
+
  if (isset($_POST['submit'])){
 
     require_once "db.php";
 
     $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if(empty($username) || empty($password)){
+    if(empty($username) || empty($password) ){
         header("Location: ../login.php?error=emptyfields");
         exit();
     }
     else{
-        $sql = "SELECT * FROM customer WHERE username = ?";
+        $sql = "SELECT * FROM customer WHERE username = ? OR email = ?";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -21,7 +29,7 @@
             exit();
         }
         else{
-            mysqli_stmt_bind_param($stmt, "s", $username);
+            mysqli_stmt_bind_param($stmt, "ss", $username, $email);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
 
@@ -34,6 +42,7 @@
                     session_start();
                     $_SESSION['sessionId'] = $row['id']; 
                     $_SESSION['sessionUser'] = $row['username']; 
+                    $_SESSION['sessionemail'] = $row['email']; 
                     header("Location: ../index.php?success=loggedin");
                     exit();
                 }else{
@@ -48,7 +57,7 @@
     }
 }else{
     header("Location: ../index.php?error=accessforbidden");
-            exit();
+        exit();
 }
 
 ?>

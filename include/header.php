@@ -2,7 +2,7 @@
 session_start();
 require_once "db.php";
 require_once "register_inc.php";
-require_once "login_inc.php";
+// require_once "login_inc.php";
 
 ?>
 <!doctype html>
