@@ -6,6 +6,16 @@
 
 <h1 class="text-center pt-2"> Login Form </h1>
 <div class="container ">
+  <?php 
+    if(isset($_GET["error"])){
+      $id = $_GET["error"];
+      $message = $_GET["msg"];
+      echo "<div id='$id' class='alert alert-danger fw-bold alert-dismissible fade show ' role='alert'> $message 
+      <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+      </div> ";
+    }
+
+  ?>
 <form class="bg-info p-5 shadow m-5 mt-3 pb-5 rounded" action="include/login_inc.php" method="POST">
   <div class="mb-3">
     <label for="yourname" class="form-label">Name</label>

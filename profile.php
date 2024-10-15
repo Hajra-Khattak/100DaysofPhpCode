@@ -5,6 +5,35 @@
 
 
 if(isset($_SESSION['sessionId'])){
+ 
+?>
+
+<?php
+    if(isset($_POST['uploadimage'])){
+       
+
+        $file = $_FILES['profile'];
+        $file_name = $file['name'];
+        $file_size = $file['size'];
+        $file_tmp = $file['tmp_name'];
+        $file_type = $file['type'];
+
+        $destiny = "assets/img/". $file_name;
+        $insrt = "INSERT INTO `customer` (`image`) VALUES('$file_name') ";
+
+        $query = mysqli_query($conn, $insrt);
+        // $check = $conn->query($insrt);
+        // if($check->num_rows > 0){
+        //     echo "query error";
+        // }
+
+        if(move_uploaded_file($file_tmp, $destiny)){
+            echo "File Uploaded Successfully";
+        }else{
+            echo "File Not Uploaded ";
+        }
+    }
+
 
 ?>
 
@@ -15,10 +44,20 @@ if(isset($_SESSION['sessionId'])){
         <div class="col-md-7 border-start border-primary border-5 rounded">
             
             <div class="card p-3 py-4">
-                
+
+            <?php 
+                $fetch = "SELECT image FROM `customer`";
+                $res = mysqli_query($conn, $fetch );
+               
+            ?>
                 <div class="text-center">
                     <img src="https://i.imgur.com/bDLhJiP.jpg" width="100" class="rounded-circle">
                 </div>
+
+                <form action="" method="POST" enctype="multipart/form-data" class="mx-3 text-center d-flex flex-column justify-content-center align-items-center">
+                    <input type="file" name="profile" id="" class="fs-6  ">
+                    <input type="submit" name="uploadimage" class="btn btn-sm btn-success">
+                </form>
                 
                 <div class="text-center mt-3">
                     <span class="bg-warning p-1 px-4 rounded ">Pro</span>
@@ -43,9 +82,11 @@ if(isset($_SESSION['sessionId'])){
                     </ul>
                     
                     <div class="buttons">
-                        
-                        <button class="btn btn-outline-primary px-4">Message</button>
-                        <button class="btn btn-primary px-4 ms-3">Contact</button>
+        
+                        <button class="btn btn-outline-primary px-4">Contact</button>
+                        <a href="logout.php" class="btn  btn-primary px-4 ms-3">Log Out</a>
+
+                        <!-- <button class="btn btn-outline-info px-4">Message</button> -->
                     </div>
                     
                     
@@ -65,7 +106,10 @@ if(isset($_SESSION['sessionId'])){
 <?php
 
 }else{
-    echo " <strong> Home  </strong>";
+    // echo " <strong> Home  </strong>";
+    echo "<div class='alert alert-danger fw-bold alert-dismissible fade show ' role='alert'> You are not Logged In  
+      <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+      </div>";
 }
 
  require_once "include/footer.php";
