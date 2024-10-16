@@ -19,18 +19,23 @@
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Mobile</th>
+                    <th scope="col">Profile Pic</th>
                     <th scope="col">Password</th>
                 </tr>
             </thead>
             <tbody>
                 <?php 
+                $i = 1;
                 while($data = mysqli_fetch_assoc($result)){
                     echo "
                      <tr >
-                    <td > ". $data['id'] . "</td>
+                    <td > ". $i++ . "</td>
                     <td> ". $data['username'] ."</td>
                     <td>". $data['email'] ."</td>
-                    <td>". $data['mobile'] ."</td>
+                    <td>". $data['mobile'] ."</td> " ?>
+
+                    <td> <img src="assets/img/<?php echo $data['image'] ?>" width="200"  alt=""></td>
+                    <?php echo "
                     <td>". $data['password'] ."</td>
                 </tr>
                     ";

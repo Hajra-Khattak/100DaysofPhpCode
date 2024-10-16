@@ -12,7 +12,17 @@
 
 <h1 class="text-center pt-2"> Register Form </h1>
 <div class="container ">
-<form class="bg-info p-5 shadow m-5 mt-3 pb-5 rounded" action="include/register_inc.php" method="POST">
+<?php 
+    if(isset($_GET["error"])){
+      $id = $_GET["error"];
+      $message = $_GET["msg"];
+      echo "<div id='$id' class='alert alert-danger fw-bold alert-dismissible fade show ' role='alert'> $message 
+      <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+      </div> ";
+    }
+
+  ?>
+<form class="bg-info p-5 shadow m-5 mt-3 pb-5 rounded" action="include/register_inc.php" method="POST" enctype="multipart/form-data">
   <div class="mb-3">
     <label for="yourname" class="form-label">Name</label>
     <input type="text" name="username" class="form-control" id="yourname">
@@ -37,6 +47,10 @@
   <div class="mb-3">
     <label for="confirmpass" class="form-label">Confirm Password</label>
     <input type="password" name="confirmpassword" class="form-control" id="confirmpass">
+  </div>
+  <div class="mb-3">
+    <label for="imageprofile" class="form-label">Profile Image</label>
+    <input type="file" name="profileImg" class="form-control" id="imageprofile" >
   </div>
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
