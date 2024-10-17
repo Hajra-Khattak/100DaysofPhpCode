@@ -1,13 +1,6 @@
 <?php
 
 
-// if (isset($_POST['submit'])){
-//     echo "yes worked";
-// }
-// else{
-//     echo "not working";
-// }
-
  if (isset($_POST['submit'])){
 
     require_once "db.php";

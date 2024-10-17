@@ -2,14 +2,14 @@
 session_start();
 require_once "db.php";
 require_once "register_inc.php";
-// require_once "login_inc.php";
+
 
 ?>
 <!doctype html>
 <html lang="en">
     <head>
         <title>Title</title>
-        <!-- Required meta tags -->
+        
         <meta charset="utf-8" />
         <meta
             name="viewport"

@@ -3,11 +3,6 @@
 
  require_once "include/main.php";
 
-//  if($_SERVER['REQUEST_METHOD'] == "POST"){
-//   echo $_POST['username'];
-//   echo $_POST['password'];
-// }
-
  ?>
 
 <h1 class="text-center pt-2"> Register Form </h1>
@@ -27,10 +22,6 @@
     <label for="yourname" class="form-label">Name</label>
     <input type="text" name="username" class="form-control" id="yourname">
   </div>
-  <!-- <div class="mb-3">
-    <label for="class" class="form-label">Class</label>
-    <input type="text" name="class" class="form-control" id="class" >
-  </div> -->
   <div class="mb-3">
     <label for="phone" class="form-label">Mobile Number</label>
     <input type="text" name="mob-num" class="form-control" id="phone" >
